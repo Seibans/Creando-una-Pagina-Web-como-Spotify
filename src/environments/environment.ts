@@ -2,8 +2,13 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+import { makeBindingParser } from "@angular/compiler";
+
 export const environment = {
-  production: false
+  production: false,
+  // Imagina que estas usando los mapas de google makeBindingParser
+  // googleMapKey: 'KEY_QUE_SE_EN_DESARROLLO'
+  api: 'http://localhost:3001/api/1.0'
 };
 
 /*

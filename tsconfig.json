@@ -2,6 +2,25 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    // VAMOS A PODER USAR IMPORTACIONES DE ARCHIVOS JSON DENTRO DE LOS COMPONENTES
+    "resolveJsonModule": true,
+    "paths": {
+      "@core/*": [
+        "src/app/core/*"
+      ],
+      "@modules/*": [
+        "src/app/modules/*"
+      ],
+      "@shared/*": [
+        "src/app/shared/*"
+      ]
+    },
+
+
+
+
+    
+    
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
