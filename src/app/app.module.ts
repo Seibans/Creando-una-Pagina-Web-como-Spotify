@@ -8,8 +8,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
+import { InjectSessionInterceptor } from '@core/interceptors/inject-session.interceptor';
 
 @NgModule({
   declarations: [ //TODO: Declaraciones, componentes, directivas, pipes
@@ -21,7 +22,15 @@ import { CookieService } from 'ngx-cookie-service';
     RouterModule,
     HttpClientModule
   ],schemas:[CUSTOM_ELEMENTS_SCHEMA],
-  providers: [CookieService],
+  providers: [
+    CookieService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InjectSessionInterceptor,
+      //Si llegas a utilizar mas interceptores usa esto
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
